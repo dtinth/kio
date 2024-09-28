@@ -42,7 +42,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "pnpm run preview",
+    command: "pnpm run preview --host",
     port: 4322,
     reuseExistingServer: true,
   },
