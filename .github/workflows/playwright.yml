@@ -22,6 +22,7 @@ jobs:
         run: pnpm exec playwright install --with-deps
       - name: Start server
         run: pnpm run preview & pnpx wait-on http-get://127.0.0.1:4321
+        timeout-minutes: 1
       - name: Run Playwright tests
         run: pnpm exec playwright test
       - uses: actions/upload-artifact@v4
