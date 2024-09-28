@@ -27,7 +27,7 @@ let booted = false;
 async function boot() {
   const base =
     new URLSearchParams(location.search).get("backend") ||
-    "http://localhost:10048";
+    "https://mockapis.onrender.com/dtinth/kio/events/demo";
   if (booted) return;
   booted = true;
   write("Loading...");
