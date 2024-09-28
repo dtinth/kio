@@ -90,6 +90,12 @@ async function boot() {
         writeLine(
           <div className="whitespace-pre-wrap">
             <strong
+              data-testid="Check-in result"
+              data-result={
+                result.usedTickets.includes(ticket)
+                  ? "Already used"
+                  : "Checked in"
+              }
               className={
                 (result.usedTickets.includes(ticket)
                   ? "bg-blue-600"
