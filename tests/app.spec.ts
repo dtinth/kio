@@ -42,7 +42,7 @@ test("allows checking with different people", async ({ page, request }) => {
   await page.keyboard.type("D4E5F6\n");
   await expect(page.getByTestId("Check-in result")).toHaveAttribute(
     "data-result",
-    "Already used"
+    "Checked in"
   );
   await expect(page.getByText("Jane Doe")).toBeVisible();
   await expect(page.getByText("VIP")).toBeVisible();
