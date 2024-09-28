@@ -39,11 +39,4 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
-
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: "pnpm preview",
-    url: "http://127.0.0.1:4322",
-    reuseExistingServer: true,
-  },
 });
