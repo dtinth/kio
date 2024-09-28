@@ -1,0 +1,10 @@
+---
+import { Kiosk } from '../components/Kiosk';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="kio">
+	<div class="p-8 font-mono text-5xl leading-tight">
+		<Kiosk client:only="react" />
+	</div>
+</Layout>
