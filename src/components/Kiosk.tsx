@@ -160,7 +160,7 @@ function createLineReader() {
 
 let line = createLineReader();
 
-function onKeyPress(e: KeyboardEvent) {
+function onKeyPress(e: Pick<KeyboardEvent, "key">) {
   console.log("onKeyPress", { key: e.key });
   if (e.key === "Enter") {
     console.log("Enter pressed");
@@ -171,12 +171,27 @@ function onKeyPress(e: KeyboardEvent) {
   }
 }
 
+async function onMessage(e: MessageEvent) {
+  if (typeof e.data?.text === "string") {
+    const text = e.data.text;
+    if (text.match(/^[A-Z0-9]*$/)) {
+      for (const char of text) {
+        onKeyPress({ key: char });
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+      }
+      onKeyPress({ key: "Enter" });
+    }
+  }
+}
+
 export function Kiosk() {
   useEffect(() => {
     boot();
     window.addEventListener("keypress", onKeyPress);
+    window.addEventListener("message", onMessage);
     return () => {
       window.removeEventListener("keypress", onKeyPress);
+      window.removeEventListener("message", onMessage);
     };
   }, []);
   const output = useStore($output);
