@@ -20,8 +20,8 @@ export function QRScanner() {
               "https://qr.spacet.me/?action=scan&fit=cover&delay=100&post=parent"
             }
             allow="camera"
-            width={320}
-            height={320}
+            width={96}
+            height={96}
             className="-scale-x-100"
           ></iframe>
         </DraggablePanel>
