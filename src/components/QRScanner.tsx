@@ -83,7 +83,9 @@ function DraggablePanel({ children }: { children: React.ReactNode }) {
       }}
       onPointerDown={handlePointerDown}
     >
-      {children}
+      <div style={{ pointerEvents: isDragging ? "none" : undefined }}>
+        {children}
+      </div>
       <div
         style={{ cursor: "move", marginBottom: "2px" }}
         className="absolute top-2 left-2 text-white z-10 opacity-0 hover:opacity-100"
